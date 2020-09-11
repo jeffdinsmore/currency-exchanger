@@ -16,7 +16,7 @@ $(document).ready(function () {
     promise.then(function(response) {
       // const exchangeTo = $("#currencyType2").val();
       const apiResponse = JSON.parse(response);
-      console.log(apiResponse);
+      console.log(apiResponse.conversion_rates);
       const USD = apiResponse.conversion_rates.USD;
       const AED = apiResponse.conversion_rates.AED;
       const ARS = apiResponse.conversion_rates.ARS;

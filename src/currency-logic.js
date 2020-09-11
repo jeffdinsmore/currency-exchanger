@@ -1,11 +1,17 @@
 // Business Logic
 export default class CurrencyConversion {
-  constructor(value) {
-    this.value = value;
+  constructor(amount, apiObject, convertTo) {
+    this.amount = amount;
+    this.apiObject = apiObject;
+    this.convertTo = convertTo;
   }
   
-  usdToOther() {
+  filterConvertTo(convertToAmount) {
+    this.apiObject = Object.filter
+  }
 
+  multipyAmount() {
+    this.amount = (this.amount * unknown).toFixed(2);
   }
 
 }
