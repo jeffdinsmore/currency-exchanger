@@ -1,24 +1,33 @@
-# _{Currency Exchanger Website}_
+# _Currency Exchange Website_
 
-#### _{Brief description of application}, {Date of current version}_
+#### _Currency Exchange website where user inputs a dollar amount and selects two different currencies to see the exchange value , 09/11/2020_
 
 #### By _Jeff Dinsmore_
 
 ## Description
 
-_{This is a detailed description of your application. Its purpose and usage.  Give as much detail as needed to explain what the application does, and any other information you want users or other developers to have. }_
+_This website will allow a user to input a currency amount, select the currency they have and the currency they want to see their amount exchanged into. The output will be the conversion pulled from the exchange rate api._
 
 ## Setup/Installation Requirements
 
 * _Clone this repository._
-* _In the cloned folder, double click on index or index.html. If the file doesn't open, right click on index or index.html and "open with" your browser of choice._
+* _Open repository in your preferred code builder program. (This was built in VS Code)_
+* _Check your package.json file to ensure the proper notation under the "scripts": and "start": tags. This was built using a Windows PC. If you using a Mac, remove the "&" symbol after the "npm run build" text in "Scripts: start:" and add a ";" after build._
+* _Add a .env file in the root directory_
+* _Register for an api key from https://www.exchangerate-api.com/_
+* _Insert api key into .env file with proper notation. Example: "API_KEY=[your-api-key-number]"_
+* _In the terminal, type "npm install"_
+* _After npm install runs, type in the terminal "npm run build" (npm run start may suffice but we will keep these commands separate)_
+* _After npm run build finishes, type in the terminal "npm run start"_
+* _The browser should open with the webpack bundled_
 
 ## Known Bugs
 
-_Not bugs at the moment._
+_No known bugs at the moment._
 
 ## Support and contact details
 
+_Please check the package.json and the webpack.config.js files for proper notation between Mac and Windows machines_
 _Any known issues, please reach out to Jeff Dinsmore by email at hello@jeffdinsmore.com._
 
 ## Technologies Used
@@ -28,6 +37,8 @@ _Any known issues, please reach out to Jeff Dinsmore by email at hello@jeffdinsm
 * _Bootstrap_
 * _jQuery_
 * _JavaScript_
+* _Node_
+* _API Get_
 
 ## License
 
