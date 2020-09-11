@@ -11,7 +11,7 @@ $(document).ready(function () {
     console.log(currencyAmount)
     let exchangeFrom = $("#currencyType").val();
     let exchangeTo = $("#currencyType2").val();
-    // $("#currency").val("");
+    $("#result").show();
     let promise = CurrencyExchange.getCurrency(exchangeFrom);
     promise.then(function(response) {
       const apiResponse = JSON.parse(response);
@@ -19,6 +19,8 @@ $(document).ready(function () {
       let secondInput = apiResponse.conversion_rates[exchangeTo];
       $("#currencyOutput1").text((currencyAmount * firstInput).toFixed(2));
       $("#currencyOutput2").text((currencyAmount * secondInput).toFixed(2));
+      $("#currencyOutputType1").text(exchangeFrom);
+      $("#currencyOutputType2").text(exchangeTo);
     }, function(error) {
       $("#outputError").html(`Error! Please try again ${error}`);
     });

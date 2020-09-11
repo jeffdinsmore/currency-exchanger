@@ -3,12 +3,12 @@ header, footer {
 }
 
 button {
-  margin: 20px 0px 20px 0px;
+  margin: 30px 0px 30px 0px;
 }
 .form-control {
   width: 170px;
 }
 
-/* #inputFields {
-  text-align: left;
-} */
+#result {
+  display: none;
+}
