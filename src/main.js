@@ -7,22 +7,23 @@ import CurrencyExchange from './currency-service.js';
 
 $(document).ready(function () {
   $("#executeButton").click(function () {
-    // const currencyAmount = parseInt($("#currency")).val();
+    const currencyAmount = parseFloat($("#currency").val()).toFixed(2);
+    console.log(currencyAmount)
     const exchangeFrom = $("#currencyType").val();
-    console.log(exchangeFrom);
-    const exchangeTo = $("#currencyType2").val();
+    // const exchangeTo = $("#currencyType2").val();
     $("#currency").val("");
     let promise = CurrencyExchange.getCurrency(exchangeFrom);
     promise.then(function(response) {
-
-      const main = JSON.parse(response);
-      const USD = main.conversion_rates.USD;
-      const AED = main.conversion_rates.AED;
-      const ARS = main.conversion_rates.ARS;
-      const AUD = main.conversion_rates.AUD;
-      const BGN = main.conversion_rates.BGN;
-      const BRL = main.conversion_rates.BRL;
-      const BSD = main.conversion_rates.BSD;
+      // const exchangeTo = $("#currencyType2").val();
+      const apiResponse = JSON.parse(response);
+      console.log(apiResponse);
+      const USD = apiResponse.conversion_rates.USD;
+      const AED = apiResponse.conversion_rates.AED;
+      const ARS = apiResponse.conversion_rates.ARS;
+      const AUD = apiResponse.conversion_rates.AUD;
+      const BGN = apiResponse.conversion_rates.BGN;
+      const BRL = apiResponse.conversion_rates.BRL;
+      const BSD = apiResponse.conversion_rates.BSD;
       console.log(USD);
       console.log(AED);
       console.log(ARS);
@@ -30,8 +31,8 @@ $(document).ready(function () {
       console.log(BGN);
       console.log(BRL);
       console.log(BSD);
-      $("#currencyOutput1").attr(exchangeFrom);
-      $("#currencyOutput2").text(exchangeTo);
+      $("#currencyOutput1").text((currencyAmount * USD).toFixed(2));
+      $("#currencyOutput2").text((currencyAmount * AED).toFixed(2));
     }, function(error) {
       $("#outputError").html(`Error! Please try again ${error}`);
     });
