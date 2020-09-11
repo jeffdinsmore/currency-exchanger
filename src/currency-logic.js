@@ -7,7 +7,8 @@ export default class CurrencyConversion {
   }
   
   filterConvertTo(convertToAmount) {
-    this.apiObject = Object.filter
+    let apiInfo = this.apiObject;
+    this.apiValue = apiInfo.filter(convertToAmount => convertToAmount )
   }
 
   multipyAmount() {
