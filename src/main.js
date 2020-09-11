@@ -12,7 +12,9 @@ $(document).ready(function () {
     let exchangeFrom = $("#currencyType").val();
     let exchangeTo = $("#currencyType2").val();
     $("#result").show();
+    
     let promise = CurrencyExchange.getCurrency(exchangeFrom);
+    
     promise.then(function(response) {
       const apiResponse = JSON.parse(response);
       let firstInput= apiResponse.conversion_rates[exchangeFrom];
@@ -22,7 +24,7 @@ $(document).ready(function () {
       $("#currencyOutputType1").text(exchangeFrom);
       $("#currencyOutputType2").text(exchangeTo);
     }, function(error) {
-      $("#outputError").html(`Error! Please try again ${error}`);
+      $("#outputError").html(`There was an error processing your request: ${error}`);
     });
   });
 });

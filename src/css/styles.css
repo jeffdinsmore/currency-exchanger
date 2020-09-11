@@ -12,3 +12,8 @@ button {
 #result {
   display: none;
 }
+
+#outputError {
+  font-size: 28px;
+  font-weight: bold;
+}
