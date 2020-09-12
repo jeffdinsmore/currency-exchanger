@@ -27,7 +27,7 @@ $(document).ready(function () {
         let firstCurrencyTypeInput = apiResponse.conversion_rates[exchangeFromInput];
         let secondCurrencyTypeInput = apiResponse.conversion_rates[exchangeToInput];
         $("#outputRate").text(firstCurrencyTypeInput + exchangeFromInput + " = " + secondCurrencyTypeInput + exchangeToInput);
-        $("#currencyExchangeOutput").text("You have " + (currencyAmount * firstCurrencyTypeInput).toFixed(2) + exchangeFromInput + " that equals " + (currencyAmount * secondCurrencyTypeInput).toFixed(2) + exchangeToInput);
+        $("#currencyExchangeOutput").text("You have " + (currencyAmount * firstCurrencyTypeInput).toFixed(2) + exchangeFromInput + " that equals " + (currencyAmount * secondCurrencyTypeInput).toFixed(2) + exchangeToInput + ".");
       }, function(error) {
         $("#outputError").html(`There was an error processing your request: ${error}`);
       });
