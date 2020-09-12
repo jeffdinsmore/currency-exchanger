@@ -4,20 +4,26 @@ header, footer {
 
 button {
   margin: 30px 0px 30px 0px;
+  width: 170px;
 }
 .form-control {
   width: 170px;
 }
 
-#result {
+#result, #outputErrorFromInput {
   display: none;
 }
 
-#outputError {
+#outputError, #outputErrorFromInput {
   font-size: 30px;
   font-weight: bold;
 }
 
 #outputRate {
-  margin-top: 50px;
+  display: none;
+  margin: 35px 0px 30px 0px;
+}
+
+.jumbotron {
+  background-color: #EBF0EE;
 }

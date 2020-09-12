@@ -13,22 +13,25 @@ $(document).ready(function () {
       alert("Please enter a number in the 'Enter An Amount' field.");
     } else {
       $("#result").show();
-    
-      let promise = CurrencyExchange.getCurrency(exchangeFromInput);
+      $("#outputErrorFromInput").hide();
+      $("#outputRate").show();
       
+      let promise = CurrencyExchange.getCurrency(exchangeFromInput);
       promise.then(function(response) {
         const apiResponse = JSON.parse(response);
+        if (apiResponse.result === "error" || apiResponse.conversion_rates[exchangeToInput] == null) {
+          $("#outputErrorFromInput").show();
+          $("#outputRate").hide();
+          $("#result").hide();
+        }
         let firstCurrencyTypeInput = apiResponse.conversion_rates[exchangeFromInput];
         let secondCurrencyTypeInput = apiResponse.conversion_rates[exchangeToInput];
         $("#outputRate").text(firstCurrencyTypeInput + exchangeFromInput + " = " + secondCurrencyTypeInput + exchangeToInput);
-        $("#currencyOutput1").text((currencyAmount * firstCurrencyTypeInput).toFixed(2));
-        $("#currencyOutput2").text((currencyAmount * secondCurrencyTypeInput).toFixed(2));
-        $("#currencyOutputType1").text(exchangeFromInput);
-        $("#currencyOutputType2").text(exchangeToInput);
+        $("#currencyExchangeOutput").text("You have " + (currencyAmount * firstCurrencyTypeInput).toFixed(2) + exchangeFromInput + " that equals " + (currencyAmount * secondCurrencyTypeInput).toFixed(2) + exchangeToInput);
       }, function(error) {
         $("#outputError").html(`There was an error processing your request: ${error}`);
       });
-    }
-    
+    } 
   });
 });
+
